@@ -21,6 +21,6 @@ module.exports = {
         new CleanWebpackPlugin([
             path.join(__dirname, '/public/*'),
         ]),
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin,
     ],
 }
