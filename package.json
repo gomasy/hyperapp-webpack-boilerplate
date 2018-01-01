@@ -1,0 +1,24 @@
+{
+    "private": true,
+    "babel": {
+        "presets": [
+            "env",
+            "hyperapp"
+        ]
+    },
+    "scripts": {
+        "dev": "NODE_ENV=development webpack",
+        "watch": "NODE_ENV=development webpack --watch",
+        "prod": "NODE_ENV=production webpack --optimize-minimize"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-hyperapp": "^2.3.0",
+        "clean-webpack-plugin": "^0.1.17",
+        "html-webpack-plugin": "^2.30.1",
+        "hyperapp": "^1.0.1",
+        "webpack": "^3.10.0"
+    }
+}
