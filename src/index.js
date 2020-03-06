@@ -5,4 +5,8 @@ const div = document.createElement('div');
 div.id = 'app';
 document.body.appendChild(div);
 
-app(state, null, view, document.getElementById('app'));
+app({
+    init: 0,
+    view: () => view(state),
+    node: document.querySelector('#app'),
+});

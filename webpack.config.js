@@ -1,8 +1,9 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+    mode: process.env.NODE_ENV,
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, '/public'),
@@ -15,12 +16,22 @@ module.exports = {
                 use: [ 'babel-loader' ],
                 exclude: /node_modules/,
             },
+            {
+                test: /\.s?css$/,
+                use: [ 'style-loader', 'css-loader', 'sass-loader' ],
+            },
         ],
     },
     plugins: [
-        new CleanWebpackPlugin([
-            path.join(__dirname, '/public/*'),
-        ]),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [
+                path.join(__dirname, '/public/*'),
+            ],
+        }),
         new HtmlWebpackPlugin,
     ],
+    devServer: {
+        host: '0.0.0.0',
+        useLocalIp: true,
+    },
 }
